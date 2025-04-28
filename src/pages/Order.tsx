@@ -20,7 +20,8 @@ const Order = () => {
   const [notes, setNotes] = useState("");
   const [selectedItems, setSelectedItems] = useState<OrderItem[]>([]);
   const [validationErrors, setValidationErrors] = useState<{[key: string]: string}>({});
-  
+  const [deliveryLocation, setDeliveryLocation] = useState("");
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -120,11 +121,14 @@ const Order = () => {
     if (selectedItems.length === 0) {
       errors.items = "Please select at least one item to order";
     }
+
+    if (isDelivery && !deliveryLocation.trim()) {
+      errors.location = "Delivery address is required";
+    }
     
     setValidationErrors(errors);
     
     if (Object.keys(errors).length === 0) {
-      // Construct WhatsApp message
       let message = "Hi, I'd like to order:\n";
       
       selectedItems.forEach(item => {
@@ -140,14 +144,15 @@ const Order = () => {
       
       message += `${isDelivery ? 'Delivery' : 'Pickup'}\n`;
       
+      if (isDelivery && deliveryLocation) {
+        message += `Delivery Location: ${deliveryLocation}\n`;
+      }
+      
       if (notes) {
         message += `\nNotes: ${notes}`;
       }
       
-      // Encode the message for the URL
       const encodedMessage = encodeURIComponent(message);
-      
-      // Redirect to WhatsApp with updated number
       window.open(`https://wa.me/+610403959785?text=${encodedMessage}`, '_blank');
       
       toast({
@@ -155,15 +160,14 @@ const Order = () => {
         description: "Your order has been sent to WhatsApp. Please complete the process there.",
       });
       
-      // Reset form
       setName("");
       setPhone("");
       setAbn("");
       setIsDelivery(false);
       setNotes("");
       setSelectedItems([]);
+      setDeliveryLocation("");
       
-      // Navigate back to home
       navigate("/");
     }
   };
@@ -316,6 +320,17 @@ const Order = () => {
                   <label htmlFor="delivery" className="text-gray-300">Delivery</label>
                 </div>
               </div>
+
+              {isDelivery && (
+                <div className="mb-4">
+                  <label className="block text-gray-300 mb-2">Delivery Location</label>
+                  <DeliveryLocation onLocationChange={setDeliveryLocation} />
+                  {validationErrors.location && (
+                    <p className="mt-1 text-red-500 text-sm">{validationErrors.location}</p>
+                  )}
+                </div>
+              )}
+
               <div>
                 <label className="block text-gray-300 mb-2">Special Instructions (Optional)</label>
                 <textarea
