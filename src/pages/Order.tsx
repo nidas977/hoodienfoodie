@@ -3,6 +3,7 @@ import { menuItems } from "../data/menu";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
+import DeliveryLocation from "../components/DeliveryLocation";
 
 interface OrderItem {
   id: string;
