@@ -1,7 +1,9 @@
+
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
+import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,12 +49,13 @@ const Navbar = () => {
             </Link>
           ))}
           <a 
-            href="https://wa.me/0403959785" 
+            href="https://wa.me/+610403959785" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="btn-primary"
           >
-            WhatsApp Us
+            <Button variant="default" className="bg-brand-blue hover:bg-brand-blue/90 text-white">
+              WhatsApp Us
+            </Button>
           </a>
         </div>
         
@@ -74,13 +77,14 @@ const Navbar = () => {
                 </Link>
               ))}
               <a 
-                href="https://wa.me/0403959785" 
+                href="https://wa.me/+610403959785" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="btn-primary w-full text-center"
                 onClick={() => setIsMenuOpen(false)}
               >
-                WhatsApp Us
+                <Button variant="default" className="bg-brand-blue hover:bg-brand-blue/90 text-white w-full">
+                  WhatsApp Us
+                </Button>
               </a>
             </div>
           </div>

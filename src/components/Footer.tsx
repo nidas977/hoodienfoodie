@@ -1,5 +1,7 @@
+
 import { Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   return (
@@ -23,7 +25,7 @@ const Footer = () => {
                 <Instagram size={24} />
               </a>
               <a 
-                href="https://wa.me/0403959785" 
+                href="https://wa.me/+610403959785" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-gray-300 hover:text-brand-blue transition-colors"

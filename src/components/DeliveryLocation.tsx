@@ -62,16 +62,17 @@ const DeliveryLocation = ({ onLocationChange }: DeliveryLocationProps) => {
             value={location}
             onChange={handleManualLocationChange}
             placeholder="Enter delivery address"
-            className="w-full bg-[#262626] text-white rounded-md px-4 py-2 border border-gray-700 focus:border-brand-blue focus:outline-none"
+            className="w-full bg-[#262626] text-white border border-gray-700 focus:border-brand-blue focus:outline-none"
           />
         </div>
         <Button
           onClick={getLocation}
           disabled={isLoading}
-          className="flex items-center gap-2 bg-brand-blue hover:bg-opacity-90"
+          variant="default"
+          className="flex items-center gap-2 bg-brand-blue hover:bg-brand-blue/90 text-white"
         >
           {isLoading ? (
-            <Navigation className="animate-spin" />
+            <Navigation className="animate-spin h-4 w-4" />
           ) : (
             <MapPin className="h-4 w-4" />
           )}

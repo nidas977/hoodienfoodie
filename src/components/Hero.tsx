@@ -31,12 +31,12 @@ const Hero = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start animate-fade-in" style={{ animationDelay: "0.4s" }}>
             <Link to="/menu">
-              <Button className="btn-primary w-full sm:w-auto">
+              <Button variant="default" className="bg-brand-blue text-white hover:bg-brand-blue/90 w-full sm:w-auto">
                 View Menu
               </Button>
             </Link>
             <Link to="/order">
-              <Button className="btn-outline w-full sm:w-auto">
+              <Button variant="outline" className="border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white w-full sm:w-auto">
                 Order Now
               </Button>
             </Link>
