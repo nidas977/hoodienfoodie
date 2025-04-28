@@ -1,4 +1,3 @@
-
 import { Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -68,7 +67,7 @@ const Footer = () => {
               <li>Sunday: 12pm - 8pm</li>
             </ul>
             <p className="mt-4 text-gray-300">
-              <strong className="text-brand-blue">Phone:</strong> 0403 959 785
+              <strong className="text-brand-blue">Phone:</strong> +61 0403 959 785
             </p>
           </div>
         </div>

@@ -1,4 +1,3 @@
-
 import { useState, FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
@@ -35,18 +34,14 @@ const Contact = () => {
     setValidationErrors(errors);
     
     if (Object.keys(errors).length === 0) {
-      // In a real app, you would send this to a server
-      // For now, just show a success message and redirect to WhatsApp
       toast({
         title: "Message Sent!",
         description: "We'll get back to you as soon as possible.",
       });
       
-      // Open WhatsApp with a predefined message
       const whatsappMessage = `Hi, my name is ${name}. ${message}`;
-      window.open(`https://wa.me/0403959785?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+      window.open(`https://wa.me/+610403959785?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
       
-      // Reset form
       setName("");
       setEmail("");
       setMessage("");
@@ -64,7 +59,6 @@ const Contact = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Contact Information */}
           <div className="order-2 md:order-1">
             <div className="bg-[#1a1a1a] rounded-lg p-6 shadow-xl h-full">
               <h2 className="text-xl font-semibold mb-6 text-white">Get In Touch</h2>
@@ -129,7 +123,6 @@ const Contact = () => {
             </div>
           </div>
           
-          {/* Contact Form */}
           <div className="order-1 md:order-2">
             <div className="bg-[#1a1a1a] rounded-lg p-6 shadow-xl">
               <h2 className="text-xl font-semibold mb-6 text-white">Send Us a Message</h2>
@@ -190,7 +183,6 @@ const Contact = () => {
           </div>
         </div>
         
-        {/* Map */}
         <div className="mt-12">
           <div className="bg-[#1a1a1a] rounded-lg p-6 shadow-xl">
             <h2 className="text-xl font-semibold mb-6 text-white">Today's Location</h2>

@@ -1,7 +1,7 @@
-
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import Logo from "./Logo";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,12 +22,9 @@ const Navbar = () => {
     <nav className="bg-brand-dark py-4 px-4 md:px-8 sticky top-0 z-50 shadow-md">
       <div className="container-custom flex justify-between items-center">
         <Link to="/" className="flex items-center">
-          <span className="text-xl md:text-2xl font-bold text-white">
-            <span className="text-brand-blue">Hoodie</span> & <span className="text-white">Foodie</span>
-          </span>
+          <Logo />
         </Link>
         
-        {/* Mobile Menu Button */}
         <button 
           className="md:hidden text-white p-2"
           onClick={toggleMenu}
@@ -35,7 +32,6 @@ const Navbar = () => {
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
         
-        {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
           {navItems.map(item => (
             <Link 
@@ -60,7 +56,6 @@ const Navbar = () => {
           </a>
         </div>
         
-        {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden absolute top-16 left-0 right-0 bg-brand-dark border-t border-gray-800 py-4 shadow-xl animate-fade-in">
             <div className="flex flex-col space-y-4 px-4">

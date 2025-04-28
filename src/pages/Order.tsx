@@ -1,4 +1,3 @@
-
 import { useState, useEffect, FormEvent } from "react";
 import { menuItems } from "../data/menu";
 import { Button } from "@/components/ui/button";
@@ -148,8 +147,8 @@ const Order = () => {
       // Encode the message for the URL
       const encodedMessage = encodeURIComponent(message);
       
-      // Redirect to WhatsApp
-      window.open(`https://wa.me/0403959785?text=${encodedMessage}`, '_blank');
+      // Redirect to WhatsApp with updated number
+      window.open(`https://wa.me/+610403959785?text=${encodedMessage}`, '_blank');
       
       toast({
         title: "Order Submitted!",
